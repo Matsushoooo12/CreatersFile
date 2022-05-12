@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { makeStyles, Theme } from "@material-ui/core";
+import "./App.css";
+import { HeaderLayout } from "./components/templates/HeaderLayout";
+import Top from "./components/pages/Top";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SignupModal from "./components/molecules/SignupModal";
 
-function App() {
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    paddingTop: "64px",
+    [theme.breakpoints.up("sm")]: {
+      paddingTop: "80px",
+    },
+  },
+}));
+
+const App: React.FC = () => {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HeaderLayout>
+      <div className={classes.root}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Top />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </HeaderLayout>
   );
-}
+};
 
 export default App;
