@@ -4,7 +4,6 @@ import "./App.css";
 import { HeaderLayout } from "./components/templates/HeaderLayout";
 import Top from "./components/pages/Top";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import SignupModal from "./components/molecules/SignupModal";
 
 const useStyles = makeStyles((theme: Theme) => ({
   root: {
